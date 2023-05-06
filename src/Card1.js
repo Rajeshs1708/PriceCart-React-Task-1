@@ -1,30 +1,91 @@
 import React from 'react'
 
-
-function Card1() {
+function Card1 ({
+  amount,
+  usage,
+  userCount,
+  storageCapacity,
+  publicProject,
+  access,
+  privateProject,
+  phoneSupport,
+  subdomain,
+  status,
+  textMuted,
+  textUnMuted,
+  checkIcon,
+  timesIcon
+}) {
   return (
     <>
       <div className='card mb-5 mb-lg-0'>
-        <div className="card-body">
-          <h5 className="card-title text-muted text-uppercase text-center">Free</h5>
-          <h6 className="card-price text-center">$0<span className="period">/month</span></h6>
+        <div className='card-body'>
+          <h5 className='card-title text-muted text-uppercase text-center'>
+            {usage}
+          </h5>
+          <h6 className='card-price text-center'>
+            ${amount}
+            <span className='period'>/month</span>
+          </h6>
           <hr />
-          <ul className="fa-ul">
-            <li><span className="fa-li"><i className="fas fa-check"></i></span>Single User</li>
-            <li><span className="fa-li"><i className="fas fa-check"></i></span>5GB Storage</li>
-            <li><span className="fa-li"><i className="fas fa-check"></i></span>Unlimited Public Projects</li>
-            <li><span className="fa-li"><i className="fas fa-check"></i></span>Community Access</li>
-            <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Unlimited
-              Private Projects</li>
-            <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Dedicated
-              Phone Support</li>
-            <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Free Subdomain
+          <ul className='fa-ul'>
+            <li>
+              <span className='fa-li'>
+                <i className='fas fa-check'></i>
+              </span>
+              <strong>{userCount}</strong>
             </li>
-            <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>Monthly Status
-              Reports</li>
+            <li>
+              <span className='fa-li'>
+                <i className='fas fa-check'></i>
+              </span>
+              {storageCapacity}
+            </li>
+            <li>
+              <span className='fa-li'>
+                <i className='fas fa-check'></i>
+              </span>
+              {publicProject}
+            </li>
+            <li>
+              <span className='fa-li'>
+                <i className='fas fa-check'></i>
+              </span>
+              {access}
+            </li>
+            <li className={amount == 0 ? textMuted : textUnMuted}>
+              <span className='fa-li'>
+                <i className={amount == 0 ? timesIcon : checkIcon}></i>
+              </span>
+              {privateProject}
+            </li>
+            <li className={amount == 0 ? textMuted : textUnMuted}>
+              <span className='fa-li'>
+                <i className={amount == 0 ? timesIcon : checkIcon}></i>
+              </span>
+              {phoneSupport}
+            </li>
+            <li className={amount == 0 ? textMuted : textUnMuted}>
+              <span className='fa-li'>
+                <i className={amount == 0 ? timesIcon : checkIcon}></i>
+              </span>
+              {subdomain}
+            </li>
+            <li
+              className={amount == 9 || amount == 0 ? textMuted : textUnMuted}
+            >
+              <span className='fa-li'>
+                <i
+                  className={amount == 9 || amount == 0 ? timesIcon : checkIcon}
+                ></i>
+              </span>
+              {status}
+            </li>
           </ul>
-          <div className="d-grid">
-            <a href="#" className="btn btn-primary text-uppercase">Button</a>
+          <div className='d-grid'>
+            <a href='#' className='btn btn-primary text-uppercase'>
+              Button
+            </a>
           </div>
         </div>
       </div>
